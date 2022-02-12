@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>LordWatch - Relojería</title>
+</head>
+
+
+<body class="container">
+
+
+   
+
+
+
+    <div id="divProductos"></div>
+    
+    
+    <div class="container-fluid">
+        <header class="header container-fluid pb-3">
+            <div class="row ">
+                <div class="col">
+                </div>
+
+                <div class="col text-center align-self-center">
+                    <img class="logo " src="../img/logo.png" alt="logo Relojeria">
+                </div>
+
+                <div class="col align-self-center text-end pe-5">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img class="imgCarrito float-end" src="../img/bolsaDeCompra.png" alt="Bolsa de compras">
+                        <div class="cantidadProductos" id="cantidadProductos"></div>
+                    </button>
+                    
+
+                    <!-- Modal Carrito -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title col-11 text-center" id="exampleModalLabel">Carrito de Compras
+                                    </h5>
+                                    <button type="button" class="btn-close col-1" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body container ">
+                                    <div id="listadoCarrito" class="text-center">Tu carrito está vacio.</div>
+                                    <div id= "listaCompras" class="row align-items-center justify-content-center">
+                                        <div id="columnaImg" class="col-2 columnaImg text-start "></div>
+                                        <div id="columnaProductos" class=" col-6 columnaProductos text-center "></div>
+                                        <div id="columnaCantidad" class=" col-2 columnaCantidad text-center "></div>
+                                        <div id="columnaPrecio" class=" col-2 columnaPrecio text-end "></div>
+                                    </div>
+                                    <div id="totalProductos"class="row align-items-center justify-content-center mt-5"></div>
+                                    
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cerrar</button>
+                                <div id="botonPagar">
+                                    
+                                </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </header>
+
+
+
+
+
+        <main class="container-fluid mb-3 ">
+            
+
+            <div class="row ">
+                <div id="confirmacionCompra"></div>
+                <div id="productoRemovido"></div>
+
+                <div class="col-12 text-center">
+                    <h1 >Nuestros Relojes</h1>
+                </div>
+
+
+
+                        <!-- FILTROS -->
+                
+                <aside class="col-2 mt-4">
+                    <h3 class="text-center mb-4">Filtros</h3>
+                    <div class="mb-5 mt-5">
+                        <div class="form-check">
+                            <h5 class="text-start">Material:</h5>
+                            <input onclick="mostrarProductos('cuero')" class="btnRelojes" type="checkbox" value="cuero" id="filtroCuero" >
+                            <label class="form-check-label" for="materialCuero">
+                                Cuero
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input onclick="mostrarProductos('metal')" class="btnRelojes" type="checkbox" value="metal" id="filtroMetal" >
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Metal
+                            </label>
+                        </div>
+                    </div>
+
+
+
+                    <div class="mb-5">
+                        <div class="form-check">
+                            <h5 class="text-start">Genero:</h5>
+                            <input onclick="mostrarProductos('masculino')" class="btnRelojes" type="checkbox" value="masculino" id="filtroMascu">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Masculino
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input onclick="mostrarProductos('femenino')" class="btnRelojes" type="checkbox" value="femenino" id="flexCheckChecked" >
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Femenino
+                            </label>
+                        </div>
+                    </div>
+
+                    
+
+                    <form class="mb-5">
+                        <div class="form-check">
+                            <h5 class="text-start">Marca:</h5>
+                            <input onclick="mostrarProductos('bulova')" class="btnRelojes" type="checkbox" value="Bulova" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Bulova
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input onclick="mostrarProductos('citizen')" class="btnRelojes" type="checkbox" value="Citizen" id="flexCheckChecked">
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Citizen
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input onclick="mostrarProductos('rolex')" class="btnRelojes" type="checkbox" value="Rolex" id="flexCheckChecked">
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Rolex
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input onclick="mostrarProductos('seiko')" class="btnRelojes" type="checkbox" value="Seiko" id="flexCheckChecked">
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Seiko
+                            </label>
+                        </div>
+
+                        
+                    </form>    
+                </aside>
+
+
+
+
+
+
+
+
+                                  <!-- RELOJES -->
+
+                <section class="row col-10 mt-3 g-4" id="seccionProductos" >
+                        <div class="col">
+                            <div class="card" style="width: 15rem;">
+                                <img src="../img/bulovaClassic.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">BULOVA Classic Wilton Automatic Grey Dial Men's Watch 96C143</h5>
+                                    
+                                    <div class="precio">
+                                        <a href="#" class="botonAgregarCarrito btn"
+                                            onclick="agregarCarrito({precio:123, marca:'Bulova', material:'cuero', genero:'masculino', nombre:'Bulova Classic', img:'../img/bulovaClassic.jpg', id:0});">Agregar</a>
+                                        <p>$123,00</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card" style="width: 15rem;">
+                                <img src="../img/bulovaCrono.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">BULOVA Sutton Chronograph Quartz Grey Dial Men's Watch 98B335</h5>
+        
+                                    <div class="precio">
+                                        <a href="#" class="botonAgregarCarrito btn"
+                                            onclick="agregarCarrito({precio:3400, marca:'Bulova', material:'metal', genero:'masculino', nombre:'Bulova Sutton', img:'../img/bulovaCrono.jpg', id:1});">Agregar</a>
+                                        <p>$3.400,00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card" style="width: 15rem;">
+                                <img src="../img/bulovaMother.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">BULOVA Wittnauer Quartz Silver Dial Ladies Watch WN4008</h5>
+
+                                    <div class="precio">
+                                        <a href="#" class="botonAgregarCarrito btn"
+                                            onclick="agregarCarrito({precio:73, marca:'Bulova', material:'metal', genero:'femenino', nombre:'Bulova Wittnauer', img:'../img/bulovaMother.jpg', id:2});">Agregar</a>
+                                        <p>$73,00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card" style="width: 15rem;">
+                                <img src="../img/bulovaRubaiyat.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">BULOVA Rubaiyat Diamond Rose Gold Dial Two-Tone Ladies Watch 98P174</h5>
+                                    
+                                    <div class="precio">
+                                        <a href="#" class="botonAgregarCarrito btn"
+                                            onclick="agregarCarrito({precio:765, marca:'Bulova', material:'metal', genero:'femenino', nombre:'Bulova Rubaiyat', img:'../img/bulovaRubaiyat.jpg', id:3});">Agregar</a>
+                                        <p>$765,00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card" style="width: 15rem;">
+                                <img src="../img/bulovaSutton.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">BULOVA Marine Star Quartz Black Dial Men's Watch 96B337</h5>
+                                    
+                                    <div class="precio">
+                                        <a href="#" class="botonAgregarCarrito btn"
+                                            onclick="agregarCarrito({precio:234, marca:'Bulova', material:'cuero', genero:'masculino', nombre:'Bulova Marine Star', img:'../img/bulovaSutton.jpg', id:4});">Agregar</a>
+                                        <p>$234,00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card" style="width: 15rem;">
+                                <img src="../img/rolexBlue.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">ROLEX Submariner Automatic Chronometer Black Dial Men's Watch 126610LNBKSO</h5>
+                                    
+                                    <div class="precio">
+                                        <a href="#" class="botonAgregarCarrito btn"
+                                            onclick="agregarCarrito({precio:123, marca:'Rolex', material:'metal', genero:'masculino', nombre:'Rolex Submariner', img:'../img/rolexBlue.jpg', id:5});">Agregar</a>
+                                        <p>$123,00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card" style="width: 15rem;">
+                                <img src="../img/rolexAir-king.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">ROLEX Air King Black Dial Stainless Steel Men's Watch 116900BKAO</h5>
+
+                                    <div class="precio">
+                                        <a href="#" class="botonAgregarCarrito btn"
+                                            onclick="agregarCarrito({precio:1000, marca:'Rolex', material:'metal', genero:'masculino', nombre:'Rolex Air-King', img:'../img/rolexAir-king.jpg', id:6});">Agregar</a>
+                                        <p>$1.000,00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card" style="width: 15rem;">
+                                <img src="../img/rolexDatejust.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">ROLEX Explorer II White Dial Stainless Steel Oyster Bracelet Automatic Men's Watch</h5>
+
+                                    <div class="precio">
+                                        <a href="#" class="botonAgregarCarrito btn"
+                                            onclick="agregarCarrito({precio:1000, marca:'Rolex', material:'metal', genero:'masculino', nombre:'Rolex Explorer II', img:'../img/rolexDatejust.jpg', id:7});">Agregar</a>
+                                        <p>$1.000,00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card" style="width: 15rem;">
+                                <img src="../img/rolexLady.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">ROLEX Datejust 36 Automatic Black Dial Ladies Watch 126234BKSJ</h5>
+                            
+                                    <div class="precio">
+                                        <a href="#" class="botonAgregarCarrito btn"
+                                            onclick="agregarCarrito({precio:1000, marca:'Rolex', material:'metal', genero:'femenino', nombre:'Rolex DateJust', img:'../img/rolexLady.jpg', id:8});">Agregar</a>
+                                        <p>$1.000,00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card" style="width: 15rem;">
+                                <img src="../img/rolexLady2.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">ROLEX Datejust 31 Automatic Diamond Gold Dial Ladies Watch 278381GDRJ</h5>
+
+                                    <div class="precio">
+                                        <a href="#" class="botonAgregarCarrito btn"
+                                            onclick="agregarCarrito({precio:1000, marca:'Rolex', material:'metal', genero:'femenino', nombre:'Rolex Diamond Gold', img:'../img/rolexLady2.jpg', id:9});">Agregar</a>
+                                        <p>$1.000,00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card" style="width: 15rem;">
+                                <img src="../img/seikoClassic.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">SEIKO Seiko 5 Classic Automatic White Dial Men's Watch SNKD97J1</h5>
+                                    
+                                    <div class="precio">
+                                        <a href="#" class="botonAgregarCarrito btn"
+                                            onclick="agregarCarrito({precio:1000, marca:'Seiko', material:'metal', genero:'masculino', nombre:'Seiko Classic', img:'../img/seikoClassic.jpg', id:10});">Agregar</a>
+                                        <p>$1.000,00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card" style="width: 15rem;">
+                                <img src="../img/seikoCrono.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">SEIKO Chronograph white Dial Men's Watch SKS539</h5>
+                                
+                                    <div class="precio">
+                                        <a href="#" class="botonAgregarCarrito btn"
+                                            onclick="agregarCarrito({precio:1000, marca:'Seiko', material:'metal', genero:'masculino', nombre:'Seiko Cronograph', img:'../img/seikoCrono.jpg', id:11});">Agregar</a>
+                                        <p>$1.000,00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card" style="width: 15rem;">
+                                <img src="../img/seikoGold.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">SEIKO Seiko 5 Automatic Gold Dial Men's Watch SNK369</h5>
+                            
+                                    <div class="precio">
+                                        <a href="#" class="botonAgregarCarrito btn"
+                                            onclick="agregarCarrito({precio:1000, marca:'Seiko', material:'metal', genero:'masculino', nombre:'Seiko Automatic Gold', img:'../img/seikoGold.jpg', id:12});">Agregar</a>
+                                        <p>$1.000,00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card" style="width: 15rem;">
+                                <img src="../img/seikoGrey.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">SEIKO 5 Automatic Grey Dial Stainless Steel Men's Watch SNKL19</h5>
+                                
+                                    <div class="precio">
+                                        <a href="#" class="botonAgregarCarrito btn"
+                                            onclick="agregarCarrito({precio:1000, marca:'Seiko', material:'metal', genero:'masculino', nombre:'Seiko Automatic Grey', img:'../img/seikoGrey.jpg', id:13});">Agregar</a>
+                                        <p>$1.000,00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card" style="width: 15rem;">
+                                <img src="../img/seikoNeo.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">SEIKO Neo Classic Silver Dial Men's Watch SUR266P1</h5>
+                                
+                                    <div class="precio">
+                                        <a href="#" class="botonAgregarCarrito btn"
+                                            onclick="agregarCarrito({precio:1000, marca:'Seiko', material:'cuero', genero:'masculino', nombre:'Seiko Neo', img:'../img/seikoNeo.jpg', id:14});">Agregar</a>
+                                        <p>$1.000,00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card" style="width: 15rem;">
+                                <img src="../img/citizenAxiom.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">CITIZEN women's Corso Stainless Steel Gray Dial Watch</h5>
+                                    
+                                    <div class="precio">
+                                        <a href="#" class="botonAgregarCarrito btn"
+                                            onclick="agregarCarrito({precio:1000, marca:'Citizen', material:'metal', genero:'femenino', nombre:'Citizen Corso', img:'../img/citizenAxiom.jpg', id:15});">Agregar</a>
+                                        <p>$1.000,00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card" style="width: 15rem;">
+                                <img src="../img/citizenChandler.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">CITIZEN Chandler Eco-Drive Chronograph Ladies Watch</h5>
+                                    
+                                    <div class="precio">
+                                        <a href="#" class="botonAgregarCarrito btn"
+                                            onclick="agregarCarrito({precio:1000, marca:'Citizen', material:'cuero', genero:'femenino', nombre:'Citizen Chandler', img:'../img/citizenChandler.jpg', id:16});">Agregar</a>
+                                        <p>$1.000,00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card" style="width: 15rem;">
+                                <img src="../img/citizenCorso.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">CITIZEN Axiom Eco-Drive Black Dial Men's Watch AU1060-51E</h5>
+                                
+                                    <div class="precio">
+                                        <a href="#" class="botonAgregarCarrito btn"
+                                            onclick="agregarCarrito({precio:1000, marca:'Citizen', material:'metal', genero:'masculino', nombre:'Citizen Axiom', img:'../img/citizenCorso.jpg', id:17});">Agregar</a>
+                                        <p>$1.000,00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card" style="width: 15rem;">
+                                <img src="../img/citizenEco.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">CITIZEN Eco Drive Black Dial Brown Leather Men's Watch AU1043-00E</h5>
+                                
+                                    <div class="precio">
+                                        <a href="#" class="botonAgregarCarrito btn"
+                                            onclick="agregarCarrito({precio:1000, marca:'Citizen', material:'cuero', genero:'masculino', nombre:'Citizen Eco Drive', img:'../img/citizenEco.jpg', id:18});">Agregar</a>
+                                        <p>$1.000,00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card" style="width: 15rem;">
+                                <img src="../img/citizenLeather.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">CITIZEN Black Dial Black Leather Men's Watch BF0580-06E</h5>
+                                
+                                    <div class="precio">
+                                        <a href="#" class="botonAgregarCarrito btn"
+                                            onclick="agregarCarrito({precio:1000, marca:'Citizen', material:'cuero', genero:'masculino', nombre:'Citizen Black', img:'../img/citizenLeather.jpg', id:19});">Agregar</a>
+                                        <p>$1.000,00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </section>
+            </div>
+
+
+
+
+        </main>
+
+        <footer>
+
+        </footer>
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="../index.js"></script>
+    <script src="../js/carrito.js"></script>
+    <script src="../js/pagarCarrito.js"></script>
+    <script src="../js/inicio.js"></script>
+    
+    <!-- <script src="./relojes.json"></script> -->
+</body>
+
+</html>

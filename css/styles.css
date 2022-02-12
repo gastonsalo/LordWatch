@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.logo{
+    width: 228.8px;
+    height: 40.8px;
+}
+
+.imgCarrito{
+    height: 54.5px;
+    width: 52px;
+}
+
+
+.header{
+    border-bottom: 2px #513946 solid;
+}
+
+.botonOrdenar{
+    background-color: #513946!important;
+}
+
+.menuOrdenar{
+    color: #513946 !important;
+}
+
+.precio{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.botonAgregarCarrito{
+    background-color: #513946!important;
+    color: white!important;
+}
+
+.menuCarrito{
+    height: 100px;
+    width: 80px;
+}
+
+.botonIngresar{
+    background-color: #513946!important;
+    color: white!important;
+}
+
+.cuadroModal{
+    background-color: #513946 !important ;
+}
+
+.tituloModal{
+    color: white;
+    
+}
+
+.btn{
+    position: relative;
+}
+
+.cantidadProductos{
+    position: absolute;
+    right: 11px;
+    top: 40px;
+}
+
+#mensajeCompra{
+    position: absolute;
+    padding: 10px;
+    color: white;
+    background-color: #513946;
+    height: 100px;
+    width: 300px;
+    z-index: 9999;
+    border-radius: 5px;
+}
+
+.boton{
+    height: 30px;
+    width: 30px;
+    background-color: #513946;
+    border-radius: 4px;
+    color: white;
+    margin-left: 5px;
+}
+
+.columnaCantidad{
+    display: flex;
+    flex-direction: row;
+}
+
+.botonCarrito{
+    text-decoration: none !important;
+    color: white;
+}
+
+.botonPagar{
+    background-color: #513946;
+    border-radius: 4px;
+    color: white;
+}
+
+#filtros{
+    font-size: 11px;
+}
+
+.noCompleto{
+    color: red;
+}
